@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Options</title>
+<link rel="stylesheet" href="bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="iconselect/css/lib/control/iconselect.css" >
+<script type="text/javascript" src="iconselect/lib/control/iconselect.js"></script>
+<script type="text/javascript" src="iconselect/lib/iscroll.js"></script>
+<script type="text/javascript" src="selector.js"></script>
+<style>
+    .centered {
+      position: fixed;
+      top: 48%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+    .left-centered {
+      position: fixed;
+      top: 44%;
+      left: 25%;
+      transform: translate(-50%, -50%);
+    }
+    .right-centered {
+      position: fixed;
+      top: 44%;
+      left: 75%;
+      transform: translate(-50%, -50%);
+    }
+    .border {
+        /*border:1px solid black;*/
+    }
+    .shift{
+        margin-left: 20px;
+        margin-top: -5px;
+    }
+    .pad-top{
+        margin-top: 10px;
+    }
+    .link{
+      color: gray;
+      position: absolute;
+      bottom: 5px;
+      right: 5px;
+      margin: 0;
+      padding: 5px 3px;
+      text-decoration: none !important;
+    }
+    .link:hover{
+      color: black;
+      text-decoration: none;
+    }
+    .no_underline {
+      text-decoration: none !important;
+    }
+    .vr {
+        width:1px;
+        background-color:#aeaeae;
+        position:absolute;
+        top:0;
+        bottom:0;
+        left:50%;
+    }
+</style>
+</head>
+
+<body>
+<div class="vr">
+
+<div class="row left-centered border">
+
+    <label>
+        <h4>Start/End Date</h4>
+        <input type="date" id="startDate" value="2000-01-01" placeholder="2000-01-01">
+    </label>
+
+    <h5 class="pad-top">Count in</h5>
+
+    <div class="shift">
+        <label class="radio">
+            <input type="radio" name="interval" value="seconds">Seconds
+        </label>
+        <label class="radio">
+            <input type="radio" name="interval" value="days">Days
+        </label>
+        <label class="radio">
+            <input type="radio" name="interval" value="years">Years
+        </label>
+    </div>
+
+</div>
+
+<div class="row right-centered border">
+
+    <label>
+        <h4>Bookmarks</h4>
+    </label>
+
+    <h5 class="pad-top">Count in</h5>
+
+    <h2>Icon/Image Select: Basic Example (Javascript)</h2>
+        
+        <div id="my-icon-select"></div>
+        
+        <input type="text" id="selected-text" name="selected-text" style="width:65px;">
+
+</div>
+</div>
+
+    <button id="save" class="btn btn-default centered">Save</button>
+
+    <a target="_blank" href="/credits.html" class="link no_underline">Credits</a>
+
+    <script src="options.js"></script>
+</body>
+
+</html>
