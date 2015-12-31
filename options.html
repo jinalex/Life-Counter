@@ -3,12 +3,60 @@
 <head>
 <title>Options</title>
 <link rel="stylesheet" href="bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="iconselect/css/lib/control/iconselect.css" >
 <style>
-    #icon-select{
-      height: 100px;
-      width: 100px;
-      overflow:auto;
+    #bookmark_container{
+      overflow: auto;
+      width: 340px;
+      height: 200px;
+    }
+    .btn-sm{
+      float: right;
+      margin: 11px 0px 0px 0px;
+      width: 24px;
+      height: 24px;
+      font-size: 15px;
+      padding: 5px;
+      line-height: 15px;
+      color: #fff !important;
+    }
+    .btn-alert{background: #FF8A77; border: 1px;}
+    .btn-alert:hover{background: #FFAC99; border: 1px;}
+    .bookmark {
+      width: 290px;
+    }
+    .bookmark a{
+      text-align: center;
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      width: 200px;
+      -webkit-line-clamp: 2; // max nb lines to show
+      -webkit-box-orient: vertical;
+    }
+    #reminder{
+      top: 85%;
+      background: #E3F2FD;
+      padding: 3px 5px 3px 5px;
+      border: 1px solid #2196F3;
+      border-radius: 5px;
+      transition: box-shadow 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+      transition-delay: 0.2s;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
+      z-index: 99;
+
+    }
+    .icon {
+      margin: 4px 4px 4px 4px;
+      cursor: pointer;
+    }
+    .icon:hover {
+      background-color: rgba(20,30,60,0.1);
+    }
+    #icon_select{
+      height: 150px;
+      width: 272px;
+      overflow-y: scroll;
     }
     .centered {
       position: fixed;
@@ -38,6 +86,9 @@
     .pad-top{
         margin-top: 10px;
     }
+    .right{
+        float: right;
+    }
     .link{
       color: gray;
       position: absolute;
@@ -62,6 +113,18 @@
         bottom:0;
         left:50%;
     }
+    .highlight {
+        background-color: rgba(20,30,60,0.25);
+        cursor: pointer;
+    }
+    .highlight:hover {
+        background-color: rgba(20,30,60,0.25);
+    }
+    .inline {
+      display: inline-block;
+      white-space: nowrap;
+      overflow: hidden;
+    }
 </style>
 </head>
 
@@ -70,10 +133,24 @@
 
 <div class="row left-centered border">
 
-    <label>
-        <h4>Start/End Date</h4>
-        <input type="date" id="startDate" value="2000-01-01" placeholder="2000-01-01">
-    </label>
+  <h4>Start/End Date</h4>
+    <input type="date" id="startDate" class="form-control" value="2000-01-01" placeholder="2000-01-01">
+<!--     <select id="time-zones" class="form-control">
+      <option value="UTC+13">NZDT UTC+13</option>
+      <option value="UTC+11">AEDT UTC+11</option>
+      <option value="UTC+9">JST UTC+9</option>
+      <option value="UTC+8">SGT UTC+8</option>
+      <option value="UTC+5.5">IST UTC+5.5</option>
+      <option value="UTC+1">CET UTC+1</option>
+      <option value="UTC">GMT UTC</option>
+      <option value="UTC-2">BRST UTC-2</option>
+      <option value="UTC-5" selected>EST UTC-5</option>
+      <option value="UTC-6">CST UTC-6</option>
+      <option value="UTC-7">MST UTC-7</option>
+      <option value="UTC-8">PST UTC-8</option>
+      <option value="UTC-10">HST UTC-10</option>
+    </select> -->
+    <input maxlength="100" type="text" id="count_what" class="form-control" value="" placeholder="What are you counting?">
 
     <h5 class="pad-top">Count in</h5>
 
@@ -91,15 +168,30 @@
 
 </div>
 
-<div class="row right-centered border">
+  <div class="row right-centered border">
 
-    <label>
-        <h4>Bookmarks</h4>
-    </label>
+      <label class="col-sm-6 col-sm-offset-2">
+          <h4>Bookmarks</h4>
+      </label>
 
-    <div id="icon-select"><p>Blahdsa jiosdfa jdsiaofj saiofj sifjaskldfjsdkafjdksafjdklsa dsajfkldsaf dsjkalfd sajklfd sajkflds ajfkldsa fjkldsaf jdkslaf djkslaf jdklsaf jdsklaf jjdklsafj dklsaf jdklsaf djklsa fjdklsa fjieowajfosj iojsioafioji</p></div>
+      <div id="icon_select" class="col-md-8 col-md-offset-2"></div>
 
-</div>
+      <div class="col-md-8 col-md-offset-2 pad-top">
+        <div class="input-group">
+          <input id="url_textfield" type="text" class="form-control" placeholder="Url Link">
+          <span class="input-group-btn">
+            <button id="add_bookmark" class="btn btn-primary">Add</button>
+          </span>
+        </div>
+      </div>
+
+      <div id="bookmark_container" class="col-sm-6 pad-top">
+      </div>
+
+  </div>
+
+  <div id="reminder" class="centered hidden">Remember to save changes</div>
+
 </div>
 
     <button id="save" class="btn btn-default centered">Save</button>

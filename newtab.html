@@ -4,11 +4,40 @@
     <title>New Tab</title>
     <link rel="stylesheet" href="bootstrap.min.css">
     <style>
+    .bookmark {
+      cursor: pointer;
+    }
+    .init_btn{
+      width: 100%;      
+    }
+    .bottom{
+      position: fixed;
+      top: 67%;
+    }
+    .pad-top{
+        margin-top: 1em;
+    }
+    #what{
+      font-size: 2em;
+      text-align: left;
+      text-justify: inter-word;
+      color: #444;
+    }
+    #what small{
+      font-size: 1em;
+    }
+    #what p{
+      font-size: .7em;
+    }
+    #time{
+      font-size: 4.4em;
+      margin-bottom: -0.6em; 
+    }
     .centered {
       position: fixed;
-      top: 44%;
-      left: 50%;
-      transform: translate(-50%, -50%);
+      width: 40%;
+      top: 38%;
+      left: 35%;
     }
     .options_link{
       color: gray;
@@ -26,6 +55,25 @@
     .no_underline {
       text-decoration: none !important;
     }
+    #bookmark_bar {
+      left: 10%;
+      width: 90%;
+      text-align: justify;
+    }
+    #bookmark_bar > div {
+      width: 8.2em; /* Declare your value. Can be in relative units. */
+      display: inline-block;
+      vertical-align: top;
+
+      /* IE fix. */
+      *display: inline;
+      zoom: 1;
+    }
+    #bookmark_bar:after {
+      content: "";
+      width: 100%;
+      display: inline-block;
+    }
     </style>
   </head>
 
@@ -33,11 +81,22 @@
 
   <body>
     <a target="_blank" href="/options.html" class="options_link no_underline">Options</a>
-    <div class="container">
+    <div class="bookmark_bar">
       <div class="row centered">
-          <h1 id="time" style="font-size: 48px"></h1>
+        <h1 id="time" class="col-md-6"></h1>
+        <h1 id="what" class="col-md-6 pad-top"></h1>
+      </div>
+
+
+      <div class="input-group centered pad-top hidden">
+        <input type="date" id="startDate" class="form-control" value="2000-01-01" placeholder="2000-01-01">
+        <input type="text" id="count_what" class="form-control" value="" placeholder="What are you counting?">
+        <!-- <span class="input-group-btn"> -->
+          <button id="set_count_what" class="btn btn-primary init_btn">Enter</button>
+        <!-- </span> -->
       </div>
     </div>
+    <div id="bookmark_bar" class="bottom"></div>
   </body>
 
 </html>
