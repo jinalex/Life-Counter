@@ -80,7 +80,8 @@ function select_icon(img) {
 // Saves options to chrome.storage
 function save_options() {
   
-  var date = new Date(document.getElementById('startDate').value);
+  var date = document.getElementById('startDate').value;
+  var timezone = document.getElementById('time-zones').value;
   var timeUnits = document.getElementsByName('interval');
   var count_what = document.getElementById("count_what").value;
 
@@ -119,7 +120,8 @@ function save_options() {
     'startDate': date,
     'bookmark_list': bookmark_list,
     'last_UID': last_UID,
-    'count_what': count_what
+    'count_what': count_what,
+    'timezone': timezone
 
   }, function() {
     // Update status to let user know options were saved.
@@ -138,10 +140,11 @@ function restore_options() {
   // Use default value 
   chrome.storage.sync.get({
     'interval': 'years',
-    'startDate': '2000-01-01',
+    'startDate': 'Fri Dec 31 1999 19:00:00 GMT-0500 (Eastern Standard Time)',
     'bookmark_list': {},
     'last_UID': 101,
-    'count_what': ''
+    'count_what': '',
+    'timezone': '-5'
   }, function(items) {
 
     // checks off the selected time units

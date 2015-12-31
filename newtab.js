@@ -27,10 +27,15 @@ function initClock() {
       'startTime': '',
       'bookmark_list': {},
       'last_UID': 101,
-      'count_what': ''
+      'count_what': '',
+      'timezone': '-5'
     }, function(items) {
 
-        var startDate = items.startDate;
+        //TODO v3 Add timezone functionality 
+        //Note: you must first convert the date back into UTC then apply the timezone offset
+        var startDate = new Date(items.startDate);
+        // startDate.setHours(startDate.getHours() + parseInt(items.timezone));
+        var timezone = items.timezone;
         var selectedUnits = items.interval;
         var count_what = items.count_what;
         var before_after;
@@ -38,9 +43,7 @@ function initClock() {
         var _MS_PER_SEC = 1000;
         var _MS_PER_DAY = 1000 * 60 * 60 * 24;
         var _MS_PER_YEAR = 1000 * 3600 * 24 *365;
-        
-        // var birthTime = 'November 1, 1996 00:00:00';
-        
+
         var conversion;
         var decimals;
 
