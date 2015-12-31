@@ -34,6 +34,7 @@ function initClock() {
         //TODO v3 Add timezone functionality 
         //Note: you must first convert the date back into UTC then apply the timezone offset
         var startDate = new Date(items.startDate);
+        startDate.setHours(startDate.getHours() + startDate.getTimezoneOffset()/60);
         // startDate.setHours(startDate.getHours() + parseInt(items.timezone));
         var timezone = items.timezone;
         var selectedUnits = items.interval;
