@@ -97,15 +97,6 @@ function save_options() {
     };
   };
 
-  console.log("list after save");
-  console.log(bookmark_list);
-
-  console.log("date after save");
-  console.log(date);
-
-  console.log("count_what");
-  console.log(count_what);
-
   // Finds whether seconds, days or years is checked
   for(var i = 0; i < timeUnits.length; i++) {
      if(timeUnits[i].checked == true) {
@@ -139,11 +130,11 @@ function save_options() {
 function restore_options() {
   // Use default value 
   chrome.storage.sync.get({
-    'interval': 'years',
-    'startDate': 'Fri Dec 31 1999 19:00:00 GMT-0500 (Eastern Standard Time)',
-    'bookmark_list': {},
+    'interval': 'seconds',
+    'startDate': '2016-01-01',
+    'bookmark_list': {"102":{"img":"02","url_link":"https://www.facebook.com/"},"104":{"img":"08","url_link":"https://mail.google.com/"},"110":{"img":"20","url_link":"https://maps.google.ca/maps"},"112":{"img":"09","url_link":"https://drive.google.com/"},"114":{"img":"24","url_link":"https://calendar.google.com/calendar"},"116":{"img":"47","url_link":"https://www.youtube.com/"},"118":{"img":"31","url_link":"https://play.spotify.com/"}},
     'last_UID': 101,
-    'count_what': '',
+    'count_what': "new year's day 2016",
     'timezone': '-5'
   }, function(items) {
 
@@ -176,11 +167,11 @@ function restore_options() {
 
     var bookmark_list = items.bookmark_list;
 
+    console.log(bookmark_list);
 
     // Get last_UID
     last_UID = items.last_UID;
 
-    console.log(bookmark_list);
   });
 }
 
@@ -208,7 +199,6 @@ window.onload = function() {
   }
   document.getElementById("icon"+selected_img).className = "icon highlight";
 }
-
 
 chrome.storage.sync.get(null, function(items) {
     try {

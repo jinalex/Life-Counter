@@ -22,12 +22,12 @@ function initClock() {
 
     //defaults
     chrome.storage.sync.get({
-      'interval': 'years',
-      'startDate': '2000-01-01',
-      'startTime': '',
-      'bookmark_list': {},
+      'interval': 'seconds',
+      'startDate': '2016-01-01',
+      'bookmark_list': {"999":{"img":"53","url_link":"/options.html"}},
+      // 'bookmark_list': {"102":{"img":"02","url_link":"https://www.facebook.com/"},"104":{"img":"08","url_link":"https://mail.google.com/"},"110":{"img":"20","url_link":"https://maps.google.ca/maps"},"112":{"img":"09","url_link":"https://drive.google.com/"},"114":{"img":"24","url_link":"https://calendar.google.com/calendar"},"116":{"img":"47","url_link":"https://www.youtube.com/"},"118":{"img":"31","url_link":"https://play.spotify.com/"}},
       'last_UID': 101,
-      'count_what': '',
+      'count_what': "new year's day 2016",
       'timezone': '-5'
     }, function(items) {
 
@@ -93,7 +93,7 @@ function initClock() {
         var now = new Date() // current date
         var timeDiff = Math.abs(now.getTime() - startTime.getTime());
         document.getElementById('time').innerHTML = (timeDiff/conversion).toFixed(decimals);
-        document.getElementById('what').innerHTML = "<small> "+message+"</small>"+"<p> "+count_what+"</p>";
+        document.getElementById('what').innerHTML = "<small>"+message+"</small>"+"<p>"+count_what+"</p>";
     }, 100);
   }
 

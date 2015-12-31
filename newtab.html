@@ -15,12 +15,11 @@
       top: 67%;
     }
     .pad-top{
-        margin-top: 1em;
+        margin-top: .9em;
     }
     #what{
       font-size: 2em;
       text-align: left;
-      text-justify: inter-word;
       color: #444;
     }
     #what small{
@@ -31,13 +30,14 @@
     }
     #time{
       font-size: 4.4em;
+      text-align: right;
       margin-bottom: -0.6em; 
     }
     .centered {
       position: fixed;
-      width: 40%;
+      width: 100%;
       top: 38%;
-      left: 35%;
+      left: 9%;
     }
     .options_link{
       color: gray;
@@ -55,13 +55,19 @@
     .no_underline {
       text-decoration: none !important;
     }
+/*    #container{
+
+    }
+    #container > div {
+
+    }*/
     #bookmark_bar {
-      left: 10%;
-      width: 90%;
+      left: 15%;
+      width: 75%;
       text-align: justify;
     }
     #bookmark_bar > div {
-      width: 8.2em; /* Declare your value. Can be in relative units. */
+      width: 8.8em; /* Declare your value. Can be in relative units. */
       display: inline-block;
       vertical-align: top;
 
@@ -81,10 +87,10 @@
 
   <body>
     <a target="_blank" href="/options.html" class="options_link no_underline">Options</a>
-    <div class="bookmark_bar">
+    <div class="container">
       <div class="row centered">
-        <h1 id="time" class="col-md-6"></h1>
-        <h1 id="what" class="col-md-6 pad-top"></h1>
+        <h1 id="time" class="col-lg-6"></h1>
+        <h1 id="what" class="col-lg-6 pad-top"></h1>
       </div>
 
 
